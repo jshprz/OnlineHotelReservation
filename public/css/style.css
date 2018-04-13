@@ -1,0 +1,430 @@
+.text-white{
+color:white !important;
+}
+
+.navbar-brand{
+  margin-top:30px;
+font-size: 150%;
+color: white;
+}
+.navbar-brand:hover{
+  cursor: pointer !important;
+}
+.red{
+	background-color: rgb(184, 13, 13) !important;
+}
+body {
+    background-image:  url('http://localhost:8000/images/1522111838.jpg');
+     background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 600px;
+  text-align: center;
+  height: 100%;
+    margin: 0;
+  padding: 0;
+  font-family: Segoe UI Light;
+  font-size: 20px;
+  overflow-x: hidden;
+}
+.btn{
+   font-family: Segoe UI Light !important; 
+}
+.front-section{
+     
+}
+.check-section{
+    background: rgb(126, 14, 14);
+    height:70px;
+}
+.navbar {
+  text-align: center;
+  background: transparent;
+  color: white;
+  font-size: 1em;
+  position: fixed;
+  width: 100%;
+  right: 0%;
+   -webkit-transition: background-color 2s ease-out;
+  -moz-transition: background-color 2s ease-out;
+  -o-transition: background-color 2s ease-out;
+  transition: background-color 2s ease-out;
+  border:none;
+}
+.navbar:hover{
+  background: rgba(0,0,0,0.6) !important;
+}
+.navbar li{
+  text-decoration: none;
+  display: inline-block;
+  padding: 2em 3.9em 1em;
+  -webkit-transition: all .3s ease-in;
+   text-align: center;
+   position: relative;
+}
+.navbar li:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+.button {
+  text-align: center;
+  
+}
+.button a {
+  display: inline-block;
+  padding: .75em 1.5em;
+  color: white;
+  background: rgba(0,0,0,0.6);
+  text-decoration: none;
+  text-transform: uppercase;
+  border-radius: 5px;
+  letter-spacing: .15em;
+  word-spacing: .25em;
+  transition: all 0.3s ease-in-out;
+}
+
+.button a:hover{
+   background: rgba(255,255,255,0.3);
+}
+footer.info {
+  color: #FFFAF0;
+  background: #777;
+  padding: 0 auto;
+  text-align: center;
+}
+.navbar-toggle{
+  margin-top: 40px;
+}
+.middle{
+  position: relative;
+  top:250px;
+}
+.card-container.card-book {
+    max-width: 400px;
+    padding: 80px 80px;
+}
+.card-container.card-register {
+    max-width: 350px;
+    padding: 30px 40px;
+}
+.card-container.card-login {
+    max-width: 350px;
+    padding: 70px 40px;
+}
+.card-container.card-availability {
+    max-width: 600px;
+    padding: 180px 40px;
+    max-height: 100px;
+}
+.card-availability {
+     background: rgb(248, 248, 248);
+    /* just in case there no content*/
+    padding: 40px 25px 30px;
+    margin: 0 auto 25px;
+    margin-top: 180px;
+    /* shadows and rounded borders */
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    
+}
+.card-register {
+     background: rgba(0,0,0,0.6);
+    /* just in case there no content*/
+    padding: 20px 25px 30px;
+    margin: 0 auto 25px;
+    margin-top: 70px;
+    /* shadows and rounded borders */
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+.card-book {
+     background: rgb(255, 255, 255);
+    /* just in case there no content*/
+    padding: 20px 25px 30px;
+    margin: 0 auto 25px;
+    margin-top: 300px;
+    box-shadow: black;
+    /* shadows and rounded borders */
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+.card-login {
+     background: rgba(0,0,0,0.6);
+    /* just in case there no content*/
+    padding: 20px 25px 30px;
+    margin: 0 auto 25px;
+    margin-top: 200px;
+    /* shadows and rounded borders */
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+.card-gallery {
+     background: rgba(0,0,0,0.6);
+    /* just in case there no content*/
+    padding: 20px 25px 30px;
+    margin: 0 auto 25px;
+    margin-top: 180px;
+    /* shadows and rounded borders */
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+.card-home {
+     background: rgb(248, 248, 248);
+    /* just in case there no content*/
+    padding: 250px;
+    margin: 0 auto 25px;
+    margin-top: 80px;
+    margin-left: 15rem;
+    /* shadows and rounded borders */
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    overflow-y: scroll;
+}
+.card-update{
+         background: rgb(248, 248, 248);    
+    /* just in case there no content*/
+    padding: 50px 55px 30px;
+    margin: 0 auto 25px;
+    margin-top: 80px;
+    margin-left: 15rem;
+    /* shadows and rounded borders */
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+.profile-img-card {
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 10px;
+    display: block;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
+/*
+ * Form styles
+ */
+.profile-name-card {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px 0 0;
+    min-height: 1em;
+}
+
+.reauth-email {
+    display: block;
+    color: #404040;
+    line-height: 2;
+    margin-bottom: 10px;
+    font-size: 14px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.form-signin #inputEmail,
+.form-signin #inputPassword {
+    direction: ltr;
+    height: 44px;
+    font-size: 16px;
+}
+.btn-block{
+  border-radius: 0% !important;  
+}
+.form-signin input[type=email],
+.form-signin input[type=password],
+.form-signin input[type=text],
+.form-signin input[type=file],
+.form-signin button {
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+    z-index: 1;
+     border-radius: 0px;
+    position: relative;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.form-signin .form-control:focus {
+    border-color: rgb(104, 145, 162);
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
+}
+
+.btn.btn-signin {
+    /*background-color: #4d90fe; */
+    background-color: rgb(104, 145, 162);
+}
+
+.btn.btn-signin:hover,
+.btn.btn-signin:active,
+.btn.btn-signin:focus {
+    background-color: rgb(12, 97, 33);
+}
+
+.forgot-password {
+    color: rgb(104, 145, 162);
+}
+
+.forgot-password:hover,
+.forgot-password:active,
+.forgot-password:focus{
+    color: rgb(12, 97, 33);
+  }
+div.sidenav{
+	z-index: 10;
+	-webkit-user-select: none;
+	transition: .325s;
+	font-size: 14px;
+	z-index: 0;
+	position: fixed;
+	background-color: #11097ec2;
+	height: 100vh;
+    width: 120px;
+    font-family:Segoe UI Light;
+    
+}
+
+div.sidelink{
+	list-style-type: none;
+	color: white;
+    margin-left: 0;
+      font-size: 100%;
+      text-align: justify;
+	margin: 25px 0px 0px 10px;
+}
+div.sidelink.active{
+ padding: 5px 5px 5px;
+	margin: 15px 0px 0px 0px;
+	border-left: 5px solid white; 
+}
+div.sidelink:hover{
+        transition: .325s;
+	padding: 5px 5px 5px;
+	margin: 15px 0px 0px 0px;
+	border-left: 5px solid white;
+
+    
+}
+.list{
+padding: 100px 0px 0px 0px;
+}
+.logout{
+     margin-left: 0;
+      font-size: 100%;
+      text-align: justify;
+	margin: 15px 0px 0px 10px;
+    padding: 250px 0px 0px 20px;
+	color: white;
+
+}
+.ontop{
+    padding: 20px 0px 0px 0px;
+}
+.linkLabel{
+    	color: white;
+        margin-left: 0;
+      font-size: 100%;
+      text-align: justify;
+	margin: 15px 0px 0px 10px
+}
+.form-group{
+    position: relative;
+    left: 0%;
+margin-top: 20px;
+color: #FFFAF0;
+font-size: 80%;
+font-family: Segoe UI;
+}
+.transparent{
+    background: transparent !important;
+    color: gray;
+    border-radius: 0px !important;
+}
+  .input-group-addon{
+     background: black !important;
+     border-radius: 0px !important; 
+  }
+#myCarousel{
+        top: .2em;
+        
+      }
+.mytext{
+    position: relative;
+    text-align: right;
+    right: 10%;
+}
+.footer-color{
+    background:rgb(126, 14, 14);
+    color: rgb(255, 255, 255);
+}
+.map{
+    margin-top: 20px;
+}
+option[default]{
+    display: none;
+}
+
+.panel {
+	position:relative;
+}
+.panel>.panel-heading:after,.panel>.panel-heading:before{
+	position:absolute;
+	top:11px;left:-16px;
+	right:100%;
+	width:0;
+	height:0;
+	display:block;
+	content:" ";
+	border-color:transparent;
+	border-style:solid solid outset;
+	pointer-events:none;
+}
+.panel>.panel-heading:after{
+	border-width:7px;
+	border-right-color:#f7f7f7;
+	margin-top:1px;
+    margin-left:2px;
+    
+}
+.panel>.panel-heading:before{
+	border-right-color:#ddd;
+	border-width:8px;
+}
+
