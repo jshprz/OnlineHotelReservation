@@ -6,6 +6,7 @@ use App\Reserved;
 use App\Pending;
 use App\Notification;
 use App\History;
+use App\Room;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -18,20 +19,10 @@ class FrontdeskController extends Controller
      */
     public function index()
     {
-        $pending=$join=DB::table('users')->join('tbl_reserved','users.id','=','tbl_reserved.user_id')->where('tbl_reserved.approve','!=',1)->select('users.*','tbl_reserved.*')->get();
-        return view('frontdesk/index',compact('pending'));
+         $reserved=$join=DB::table('users')->join('tbl_reserved','users.id','=','tbl_reserved.user_id')->where('tbl_reserved.approve','=',1)->select('users.*','tbl_reserved.*')->get();
+        return view('frontdesk/index',compact('reserved'));
     }
-    protected function approve(Request $request)
-    {
-        $reserve=Reserved::where('id',$request->get('id'));
-        $room=Room::where('room_number',$request->get('room_number'))->update(['status','not available']);
-        $reserve->update(['approve'=>true]);
-        $notification=new Notification;
-        $notification->user_id=$request->get('user_id');
-        $notification->body = 'Your reservation was approved';
-        $notification->save();
-        return redirect()->back()->with('approve','1 customer has been approved');
-    }
+
     protected function disapprove(Request $request)
     {
         $reserve=Reserved::where('id',$request->get('id'));
@@ -43,11 +34,6 @@ class FrontdeskController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function reservedCustomer()
-    {
-        $reserved=$join=DB::table('users')->join('tbl_reserved','users.id','=','tbl_reserved.user_id')->where('tbl_reserved.approve','=',1)->select('users.*','tbl_reserved.*')->get();
-        return view('frontdesk/reserved_customers',compact('reserved'));
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -58,7 +44,7 @@ class FrontdeskController extends Controller
     public function endDuration(Request $request)
     {
         $reserved=Reserved::where('user_id',$request->get('user_id'))->delete();
-        $room=Room::where('room_number',$request->get('room_number'))->update(['status','available']);
+        $room=Room::where('room_number',$request->get('room_number'))->update(['status'=>'available']);
         $history=new History;
         $history->user_id=$request->get('user_id');
         $history->room=$request->get('room_number');

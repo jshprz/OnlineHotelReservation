@@ -11,8 +11,8 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-center text-white">
                 <li><a id="map" href="{{route('viewfeedbackPage')}}">Reviews</a></li>
-                <li><a id="contact" href="#">Contact us</a></li>
-                <li><a id="about" href="#">About us</a></li>
+                <li><a id="contact" href="{{route('contactus')}}">Contact us</a></li>
+                <li><a id="about" href="{{route('aboutus')}}">About us</a></li>
                 <li><a id="gallery" href="{{route('amenitiesPage')}}">Amenities</a></li>
                <li><a id="membership" href="{{route('login')}}">Sign in</a></li>
             </ul>

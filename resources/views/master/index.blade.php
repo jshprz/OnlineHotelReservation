@@ -36,6 +36,14 @@
 <script type="text/javascript" src="{{asset('/js/carousel.js')}}"></script>
 <script type="text/javascript" src="{{asset('bootstrap/js/bootstrap-datetimepicker.js')}}" charset="UTF-8"></script>
 <script type="text/javascript" src="{{asset('bootstrap/locales/bootstrap-datetimepicker.fr.js')}}" charset="UTF-8"></script>
+<script>
+$(document).ready(function() {
+    // show the alert
+    setTimeout(function() {
+        $(".alert").alert('close');
+    }, 2000);
+});
+</script>
 <script type="text/javascript">
     $('.form_datetime').datetimepicker({
         //language:  'fr',

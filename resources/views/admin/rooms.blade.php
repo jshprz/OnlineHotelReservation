@@ -118,7 +118,7 @@ Edit
 @endforeach
 </tbody>	
 		</table>
-
+{{$room->links()}}
 </div>
 </div>		
 </div>

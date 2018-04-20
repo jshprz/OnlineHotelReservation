@@ -156,15 +156,8 @@ table tr td{
 
 	
     	<div class="sidenav">
-		<a href="{{route('frontdesk')}}">
+				<a href="{{route('frontdesk')}}">
 					<div class="sidelink active">
-						<span class="linkLabel">
-							Pending Customer
-						</span>
-					</div>
-				</a>
-				<a href="{{route('ongoing')}}">
-					<div class="sidelink">
 						<span class="linkLabel">
 							Ongoing Reservation 
 						</span>
@@ -194,29 +187,22 @@ table tr td{
 						<td><b>ROOM TYPE</b></td>
                         <td><b>TIME IN</b></td>
                         <td><b>TIME OUT</b></td>
-						<td><b>HOURS</b></td>
-						<td><b>TOTAL PAYMENT</b></td>
 						<td><b>ACTIONS</b></td>
 					</tr>
 				</thead>
 	
-@foreach($pending as $pendings)		
+@foreach($reserved as $ongoing)		
 <tbody>
 <tr>
-<td>{{$pendings->firstname}}</td>
-<td>{{$pendings->lastname}}</td>
-<td>{{$pendings->room_number}}</td>
-<td>{{$pendings->room_type}}</td>
-<td>{{$pendings->time_in}}</td>
-<td>{{$pendings->time_out}}</td>
-<td>{{$pendings->hour}}</td>
-<td>{{$pendings->total_payment}}</td>
+<td>{{$ongoing->firstname}}</td>
+<td>{{$ongoing->lastname}}</td>
+<td>{{$ongoing->room}}</td>
+<td>{{$ongoing->room_type}}</td>
+<td>{{$ongoing->time_in}}</td>
+<td>{{$ongoing->time_out}}</td>
 <td>
-<a class='edit-modal btn btn-success' href="{{route('approve',['id'=>$pendings->id,'user_id'=>$pendings->user_id],'room_number'=>$pendings->room_number]}}">
-Approve	
-</a>
-<a class='edit-modal btn btn-danger' href="{{route('disapprove',['id'=>$pendings->id])}}">
-Disapprove
+<a class='edit-modal btn btn-danger' href="{{route('endDuration',['user_id'=>$ongoing->user_id,'room_number'=>$ongoing->room,'room_type'=>$ongoing->room_type,'time_in'=>$ongoing->time_in,'time_out'=>$ongoing->time_out,'hour'=>$ongoing->hour,'total_payment'=>$ongoing->total_payment])}}">
+End Duration
 </a>
 </td>
 </tr>

@@ -52,8 +52,8 @@ Route::get('/guest/gallery', function () {
 Route::get('/guest/about_us', function () {
     return view('master/aboutus');
 })->name('about_us');
-
-
+Route::get('/guest/contactus','HomeController@getContactus')->name('contactus');
+Route::get('/guest/aboutus','HomeController@getAboutus')->name('aboutus');
 Route::post('/guest/register','Auth\RegisterController@register')->name('goregister');
 Route::get('/guest/reviews','HomeController@viewfeedbackPage')->name('viewfeedbackPage');
 Route::get('/guest/allreviews','HomeController@viewallfeedbackPage')->name('viewallfeedbackPage');
@@ -62,9 +62,8 @@ Route::group(['middleware'=>'auth'], function(){
 Route::get('/user/reviews','UserController@viewfeedbackPage')->name('reviews');
 Route::get('/user/feedback','UserController@writefeedbackPage')->name('feedback');
 Route::post('/user/feedback','UserController@sendFeedback')->name('sendfeedback');
-Route::get('/user/notification', function () {
-    return view('users/index');
-})->name('dashboard');
+Route::get('/user/notification','UserController@getnotification')->name('dashboard');
+Route::get('/user/trashnotification','UserController@trashnotif')->name('trashnotif');
 Route::get('/user/logout','Auth\LoginController@logout')->name('logout');
 Route::get('/user/setting','UserController@gotoSettings')->name('setting');
 Route::post('/user/setting','UserController@updateUser')->name('update');
@@ -92,6 +91,11 @@ Route::group(['middleware' => ['admin']], function () {
    Route::get('/admin/searched/room','AdminController@searchRoom')->name('searchRoom');
    Route::get('/admin/searched/customer','AdminController@searchCustomer')->name('searchCustomer');
    
+   Route::post('/admin/setting/sitename','AdminController@postSitename')->name('postsitename');
+   Route::post('/admin/setting/siteemail','AdminController@postEmail')->name('postemail');
+   Route::post('/admin/setting/sitemobile','AdminController@postMobile')->name('postmobile');
+   Route::post('/admin/setting/sitetelephone','AdminController@postTelephone')->name('posttelephone');
+   Route::post('/admin/setting/aboutus','AdminController@postAboutus')->name('postaboutus');
    Route::post('/admin/image/upload','AdminController@imageUpload')->name('addimage');
    Route::post('/admin/edit/user','AdminController@editUser')->name('updateAdmin');
    Route::post('/admin/edit/room','AdminController@editRoom')->name('updateRoom');
@@ -101,8 +105,6 @@ Route::group(['middleware' => ['admin']], function () {
 });
 Route::group(['middleware' => ['frontdesk']], function () {
     Route::get('/frontdesk','FrontdeskController@index')->name('frontdesk');
-    Route::get('/reservedCustomer','FrontdeskController@reservedCustomer')->name('ongoing');
     Route::get('/endduration','FrontdeskController@endDuration')->name('endDuration');
-    Route::get('/approve','FrontdeskController@approve')->name('approve');
     Route::get('/disapprove','FrontdeskController@disapprove')->name('disapprove');
 });

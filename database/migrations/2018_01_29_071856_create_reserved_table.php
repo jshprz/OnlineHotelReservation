@@ -17,6 +17,7 @@ class CreateReservedTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('reservation_code');
             $table->string('room')->nullable();
             $table->string('room_type');
             $table->boolean('approve')->nullable();

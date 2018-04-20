@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\User;
 use App\Feedback;
+use App\Notification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -24,12 +25,21 @@ class UserController extends Controller
        $user=User::where('id',Auth::user()->id)->get();
        return view('users.setting',compact('user'));
     }
-
-    /**
-     * Show the form for creating a new resource.
-     * 
-     * @return \Illuminate\Http\Response
-     */
+    public function getnotification()
+    {
+        $notification=Notification::where('user_id',Auth::user()->id)->where('status','keep')->get();
+        $join=DB::table('tbl_notification')
+        ->join('users','users.id','=','tbl_notification.user_id')
+        ->join('tbl_reserved','tbl_reserved.user_id','=','users.id')
+        ->where('tbl_notification.user_id','=',Auth::user()->id)->get();
+        return view('users.index',compact('join','notification'));
+    }
+    public function trashnotif(Request $request)
+    {
+        $notification=Notification::where('id',$request->get('id'));
+        $notification->update(['status' => 'trash']);
+        return back()->with('flashSuccess','1 notification has been moved to trash');
+    }
     public function updateUser(Request $request)
     {
         $inputs=$request->all();

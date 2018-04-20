@@ -66,7 +66,7 @@ class AdminController extends Controller
     }
     public function roomsPage()
     {
-        $room=Room::all();
+        $room=Room::paginate(10);
         return view('admin.rooms',compact('room'));
     }
     public function imagePage()
@@ -262,5 +262,70 @@ class AdminController extends Controller
              return back()->with('flashError','There is something wrong');
     
             }
+    }
+    public function postSitename(Request $request)
+    {
+        $input=$request->all();
+        $validator=Validator::make($input,[
+            'sitename' => 'required|string|max:20'
+        ]);
+        $validator->validate();
+        if($validator->passes())
+        {
+            $settings=siteSettings::where('option','Sitename')->update(['value' => $request->get('sitename')]);
+            return back()->with('flashSuccess','The name of the website has been changed');
+        }else{
+            return back();
+        }
+    }
+    public function postEmail(Request $request)
+    {
+        $input=$request->all();
+        $validator=Validator::make($input,[
+            'email' => 'required|email'
+        ]);
+        $validator->validate();
+        if($validator->passes())
+        {
+            $settings=siteSettings::where('option','email')->update(['value' => $request->get('email')]);
+            return back()->with('flashSuccess','The email of the website has been changed');
+        }else{
+            return back();
+        }
+    }
+    public function postMobile(Request $request)
+    {
+        $input=$request->all();
+        $validator=Validator::make($input,[
+            'mobile' => 'required|regex:/^(\+63)[0-9]{10}$/'
+        ]);
+        $validator->validate();
+        if($validator->passes())
+        {
+            $settings=siteSettings::where('option','mobile')->update(['value' => $request->get('mobile')]);
+            return back()->with('flashSuccess','The mobile number of the website has been changed');
+        }else{
+            return back();
+        }
+    }
+    public function postTelephone(Request $request)
+    {
+        $settings=siteSettings::where('option','telephone')->update(['value' => $request->get('telephone')]);
+            return back()->with('flashSuccess','The telephone number of the website has been changed');
+    }
+    public function postAboutus(Request $request)
+    {
+        $input=$request->all();
+        $validator=Validator::make($input,[
+            'aboutus' => 'required|min:50|max:255'
+        ]);
+        $validator->validate();
+        if($validator->passes())
+        {
+            $settings=siteSettings::where('option','aboutus')->update(['value' => $request->get('aboutus')]);
+            return back()->with('flashSuccess','The about us of the website has been changed');
+        }else{
+            return back();
+        }
     }
 }

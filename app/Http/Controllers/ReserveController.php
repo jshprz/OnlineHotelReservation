@@ -3,15 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Reserved;
-use App\Pending;
 use App\Room;
 use App\User;
+use App\Notification;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
+use Mail;
 class ReserveController extends Controller
 {
     /**
@@ -70,19 +71,41 @@ class ReserveController extends Controller
     }
     protected function reserve(Request $request)
     {
-          $explodedTimein=explode($request->session()->get('time_in'));
-          $explodedTimeout=explode($request->session()->get('time_out'));
+          $explodedTimein=explode(' ',$request->session()->get('time_in'));
+          $explodedTimeout=explode(' ',$request->session()->get('time_out'));
           $finalTimein=$explodedTimein[0].' '.$explodedTimein[1];
           $finalTimeout=$explodedTimeout[0].' '.$explodedTimeout[1];
+          
+          $room=Room::where('room_number',$request->session()->get('room_number'));
+          $room->update(['status'=>'not available']);
+
+          $notification=new Notification;
+          $notification->user_id=Auth::user()->id;
+          $notification->body = 'Your reservation information';
+          $notification->status= 'keep';
+          $notification->save();
+          
           $pending = new Reserved;
           $pending->user_id=Auth::user()->id;
+          $pending->reservation_code=md5(mt_rand());
           $pending->room=$request->session()->get('room_number');
           $pending->room_type=$request->session()->get('room_type');
           $pending->time_in=$finalTimein;
           $pending->time_out=$finalTimeout;
           $pending->hour=$request->session()->get('hours');
           $pending->total_payment=$request->session()->get('total_price');
+          $pending->approve=true;
           $pending->save();
+          $data=DB::table('users')->join('tbl_reserved',function($join){
+            $join->on('users.id','=','tbl_reserved.user_id')->where('users.id','=',Auth::user()->id)->where('tbl_reserved.user_id','=',Auth::user()->id);
+          })->get();
+         
+          Mail::send('mail.reservation-code',['code'=>$data],function($message)use($data){
+              foreach($data as $datas){ 
+      $message->to($datas->email);
+              }
+      $message->subject('Reservation Code');
+    });
           return redirect()->route('dashboard')->with('flashSuccess','Your reservation has been submitted please check your notification');
     }
 
