@@ -18,21 +18,19 @@
 
 <div class="content">
    <div class="holder">
-	  
 
-	           <div class="col-md-2">
-				
-	              <div class="panel panel-default">
-                  <div class="panel-body"><center><span class="glyphicon glyphicon-picture"></span><b>&nbsp&nbsp&nbspIMAGES</b><br><center><b>{{$image}}</b></div>
-  	              </div>
-	               </div>
-
-	                 </div>
-
-	              <div class="col-md-3">
+		<div class="col-md-2">
 		
 	                    <div class="panel panel-default">
                             <div class="panel-body"><center><span class="glyphicon glyphicon-user"></span><b>&nbsp&nbsp&nbspUSERS</b><br><center><b>{{$user}}</b></div>
+  	                           </div>
+	                              </div>
+
+              	  </div>
+	              <div class="col-md-3">
+		
+	                    <div class="panel panel-default">
+                            <div class="panel-body"><center><span class="glyphicon glyphicon-home"></span><b>&nbsp&nbsp&nbspROOMS</b><br><center><b>{{$room}}</b></div>
   	                           </div>
 	                              </div>
 
@@ -63,7 +61,7 @@
 					<div class="col-md-2">
 		
 	                    <div class="panel panel-default">
-                            <div class="panel-body"><center><span class="glyphicon glyphicon-ok"></span><b>&nbsp&nbsp&nbspAPPROVE REQUEST</b><br><center><b>{{$approve}}</b></div>
+                            <div class="panel-body"><center><span class="glyphicon glyphicon-ok"></span><b>&nbsp&nbsp&nbspAPPROVED RESERVATIONS</b><br><center><b>{{$approve}}</b></div>
   	                           </div>
 	                              </div>
 

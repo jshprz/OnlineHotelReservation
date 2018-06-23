@@ -25,12 +25,12 @@ class AdminController extends Controller
     }
     public function index()
     {
-        $image=Images::count();
         $user=User::count();
         $unconfirmed=User::where('confirmed',false)->count();
         $feedback=Feedback::count();
         $approve=Reserved::where('approve',true)->count();
         $denied=Reserved::where('approve',false)->count();
+        $room=Room::count();
 
         $lava=new Lavacharts;
         $datatable=$lava->DataTable();
@@ -38,11 +38,11 @@ class AdminController extends Controller
         $datatable->addNumberColumn('Value');
 
         $datatable->addRows([
-            ['Images',$image],
             ['Users',$user],
+            ['Rooms',$room],
             ['Unconfirmed Users',$unconfirmed],
             ['Feedbacks',$feedback],
-            ['Approved Request',$approve],
+            ['Approved Reservations',$approve],
             ['Denied Request',$denied]
             ]);
   $lava->PieChart('Donuts', $datatable, [
@@ -57,7 +57,7 @@ class AdminController extends Controller
     ]
 ]);
 
-        return view('admin.admin',compact('image','user','unconfirmed','feedback','approve','denied','lava'));
+        return view('admin.admin',compact('user','room','unconfirmed','feedback','approve','denied','lava'));
     }
     public function usersPage()
     {

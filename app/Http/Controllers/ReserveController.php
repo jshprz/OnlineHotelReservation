@@ -87,7 +87,7 @@ class ReserveController extends Controller
           
           $pending = new Reserved;
           $pending->user_id=Auth::user()->id;
-          $pending->reservation_code=md5(mt_rand());
+          $pending->reservation_code=str_random(3)."-".str_random(3)."-".str_random(3);
           $pending->room=$request->session()->get('room_number');
           $pending->room_type=$request->session()->get('room_type');
           $pending->time_in=$finalTimein;
