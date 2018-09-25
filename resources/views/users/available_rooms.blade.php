@@ -2,15 +2,16 @@
 @section('content')
 <style>
     body{
-        background:gray;
+      
+        color:white;
     }
 </style>
 <div class="container">
 <br>
-<a class="btn btn-primary" href="{{route('room_availability')}}">Go back</a> 
+<a class="btn btn-primary" href="{{route('dashboard')}}">Go back</a> 
 <div class="row">
 <div class="col-sm-12">
-<h3 class="text-white">AVAILABLE ROOMS<h3>
+<h3>AVAILABLE ROOMS<h3>
 </div><!-- /col-sm-12 -->
 </div><!-- /row -->
 

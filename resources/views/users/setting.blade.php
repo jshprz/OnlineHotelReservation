@@ -9,8 +9,9 @@
 <style>
     body{
         background-image:none !important;
-        background: rgba(0, 0, 0, 0.747);   
-        color:white;
+        background: #f2f2f2;   
+        overflow:hidden;
+        color:black;
     }
     h2{
        font-family: Segoe UI Light;

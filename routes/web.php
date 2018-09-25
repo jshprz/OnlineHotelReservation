@@ -62,12 +62,14 @@ Route::group(['middleware'=>'auth'], function(){
 Route::get('/user/reviews','UserController@viewfeedbackPage')->name('reviews');
 Route::get('/user/feedback','UserController@writefeedbackPage')->name('feedback');
 Route::post('/user/feedback','UserController@sendFeedback')->name('sendfeedback');
-Route::get('/user/notification','UserController@getnotification')->name('dashboard');
+Route::get('/user/account-user','UserController@getnotification')->name('dashboard');
 Route::get('/user/trashnotification','UserController@trashnotif')->name('trashnotif');
 Route::get('/user/logout','Auth\LoginController@logout')->name('logout');
 Route::get('/user/setting','UserController@gotoSettings')->name('setting');
 Route::post('/user/setting','UserController@updateUser')->name('update');
 Route::get('/user/room/reserve','ReserveController@checkAvailabilityForm')->name('room_availability');
+Route::get('/user/view-notification','UserController@viewNotification')->name('notification');
+
 
 Route::get('/user/room/availability','ReserveController@checkAvailability')->name('availability');
 Route::get('/user/room/reserve/info','ReserveController@index')->name('book');

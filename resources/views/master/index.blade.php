@@ -24,6 +24,7 @@
    
      @yield('sidebar')
      @yield('navbar')
+     
      <div class="container">
         <div class="row">    
                 @yield('content')
@@ -31,10 +32,10 @@
 </div>
     @yield('pagination')    
 
-<script type="text/javascript" src="{{asset('jquery/jquery-1.8.3.min.js')}}" charset="UTF-8"></script>
-<script type="text/javascript" src="{{asset('bootstrap/js/bootstrap.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('/js/carousel.js')}}"></script>
-<script type="text/javascript" src="{{asset('bootstrap/js/bootstrap-datetimepicker.js')}}" charset="UTF-8"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="{{asset('bootstrap/js/bootstrap-datetimepicker.js')}}" charset="UTF-8"></script>
 <script type="text/javascript" src="{{asset('bootstrap/locales/bootstrap-datetimepicker.fr.js')}}" charset="UTF-8"></script>
 <script>
 $(document).ready(function() {

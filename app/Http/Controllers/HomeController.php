@@ -27,7 +27,10 @@ class HomeController extends Controller
         $background=siteSettings::where('option','GuestBackground')->get();
         $logo=siteSettings::where('option','Logo')->get();
         $sitename=siteSettings::where('option','Sitename')->get();
-        return view('master.landingpage',compact('background','logo','sitename'));
+        $image=Images::all();
+        $about=siteSettings::where('option','aboutus')->get();
+        $join=DB::table('users')->join('tbl_feedback','users.id','=','tbl_feedback.user_id')->select('users.*','tbl_feedback.*')->get();
+        return view('master.landingpage',compact('join','about','image','background','logo','sitename'));
     }
     public function getContactus()
     {

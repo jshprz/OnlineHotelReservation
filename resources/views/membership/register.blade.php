@@ -1,10 +1,6 @@
 @extends('master/index')
 @section('content')
-<style>
-    body{
-        background:gray;
-    }
-</style>
+
     <div class="container">
         <div class="card-register card-container">
             <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->

@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
+use App\Images;
+use App\siteSettings;
 class UserController extends Controller
 {
     /**
@@ -32,7 +34,9 @@ class UserController extends Controller
         ->join('users','users.id','=','tbl_notification.user_id')
         ->join('tbl_reserved','tbl_reserved.user_id','=','users.id')
         ->where('tbl_notification.user_id','=',Auth::user()->id)->get();
-        return view('users.index',compact('join','notification'));
+        $image=Images::all();
+        $logo=siteSettings::where('option','Logo')->get();
+        return view('users.index',compact('logo','image','join','notification'));
     }
     public function trashnotif(Request $request)
     {
@@ -87,5 +91,16 @@ class UserController extends Controller
         }else{
             return back()->with('flashError',$validator->errors);
         }
+    }
+    public function viewNotification(Request $request)
+    {
+        $reservation_code = $request->reservation_code;
+        $room_number = $request->room_number;
+        $room_type = $request->room_type;
+        $total_payment = $request->total_payment;
+        $hour = $request->hour;
+        $time_in = $request->time_in;
+        $time_out = $request->time_out;
+        return view('users/notification',compact('reservation_code','room_number','room_type','total_payment','hour','time_in','time_out'));
     }
 }

@@ -4,7 +4,8 @@
 @section('content')
 <style>
     body{
-        background:gray;
+        
+        color:white;
     }
     
     h3{
@@ -54,7 +55,7 @@
              <a class="form-control btn btn-primary" type="submit" href="{{route('payment')}}">reserve and pay with paypal</a>
              <br>
              <br>
-             <a class="form-control btn btn-danger" type="submit" href="{{route('room_availability')}}">cancel reservation</a>
+             <a class="form-control btn btn-danger" type="submit" href="{{route('dashboard')}}">cancel reservation</a>
         </div><!-- /card-container -->
     </div>
 

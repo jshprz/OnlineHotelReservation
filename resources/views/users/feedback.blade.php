@@ -2,7 +2,10 @@
 @section('content')
 <style>
     body{
-        background:gray;
+        background-image:none !important;
+        background: #f2f2f2;   
+        overflow:hidden;
+        color:black;
     }
 </style>
 <div class="container">
@@ -28,7 +31,6 @@
 </div>
 </div>
 @endforeach
-<a class="btn btn-default" href="{{route('feedback')}}">Write a feedback</a>
 </div><!-- /row -->
 
 </div><!-- /container -->

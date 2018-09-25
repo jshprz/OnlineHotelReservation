@@ -74,11 +74,11 @@ class PayWithPaypalController extends Controller
         } catch (\PayPal\Exception\PPConnectionException $ex) {
  
             if (\Config::get('app.debug')) {
-                return redirect()->route('book')->with('flashError', 'Connection timeout');
+                return redirect()->route('dashboard')->with('flashError', 'Connection timeout');
  
             } else {
  
-                return redirect()->route('book')->with('flashError', 'Some error occur, sorry for inconvenient');
+                return redirect()->route('dashboard')->with('flashError', 'Some error occur, sorry for inconvenient');
  
             }
  
@@ -104,7 +104,7 @@ class PayWithPaypalController extends Controller
             return Redirect::away($redirect_url);
  
         }
-        return redirect()->route('book')->with('flashError', 'Unknown error occurred');
+        return redirect()->route('dashboard')->with('flashError', 'Unknown error occurred');
  
     }
     public function getPaymentStatus()
@@ -115,7 +115,7 @@ class PayWithPaypalController extends Controller
         Session::forget('paypal_payment_id');
         if (empty(Input::get('PayerID')) || empty(Input::get('token'))) {
  
-            return redirect()->route('book')->with('flashError', 'Payment failed');
+            return redirect()->route('dashboard')->with('flashError', 'Payment failed');
  
         }
  
@@ -131,7 +131,7 @@ class PayWithPaypalController extends Controller
             return redirect()->route('requestReserve')->with('flashSuccess', 'Payment success');
  
         }
-        return redirect()->route('book')->with('flashError', 'Payment failed');
+        return redirect()->route('dashboard')->with('flashError', 'Payment failed');
  
 }
 }

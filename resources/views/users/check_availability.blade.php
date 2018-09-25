@@ -7,7 +7,8 @@
 @section('content')
 <style>
     body{
-        background:gray;
+      
+        color:white;
     }
     
     h3{
@@ -30,13 +31,13 @@
             <div class="form-group">
                
                 <center>
-                <div class="input-group date form_datetime col-lg-12" data-date="1979-09-16T05:25:07Z" data-date-format="yyyy-mm-dd HH:ii:ss P" data-link-field="dtp_input1">
+                <div class="input-group date form_datetime col-lg-12" data-date-format="yyyy-mm-dd HH:ii:ss P" data-link-field="dtp_input1">
                     <input class="form-control" type="text" value="" name="time_in" placeholder="Time In" id="time_in" required>
                     <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
 					<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                 </div>
             <br>
-              <div class="input-group date form_datetime col-lg-12" data-date="1979-09-16T05:25:07Z" data-date-format="yyyy-mm-dd HH:ii:ss P" data-link-field="dtp_input1">
+              <div class="input-group date form_datetime col-lg-12" data-date-format="yyyy-mm-dd HH:ii:ss P" data-link-field="dtp_input1">
                     <input class="form-control" type="text" value="" name="time_out" placeholder="Time Out" id="time_out" required>
                     <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
 					<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>

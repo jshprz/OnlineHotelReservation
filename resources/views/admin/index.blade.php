@@ -24,7 +24,7 @@
 
 .sidenav {
     height: 100%;
-    width: 200px;
+    width: 250px;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -128,8 +128,22 @@ color:#757171;
     </style>
 </head>
 <body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">
+      <h1>&nbsp&nbspMCHOTEL ADMIN</h1>
+      </a>
+    </div>
+    <div class="navbar navbar-right">
+    <br>
+    <br>
+    <a href="{{route('logout')}}" style="margin-right:100px">LOGOUT</a>
+    </div>
+  </div>
+</nav>
 @include('admin.sidebar')
-<center><h1>&nbsp&nbsp&nbsp&nbsp&nbsp&nbspMCHOTEL ADMIN</h1>
+<center>
 @yield('content')
 
 <script type="text/javascript" src="{{asset('js/jquery-3.1.1.min.js')}}" charset="UTF-8"></script>

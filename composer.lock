@@ -4347,8 +4347,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=7.0.0",
-        "ext-gd": "*"
+        "php": ">=7.0.0"
     },
     "platform-dev": []
 }
