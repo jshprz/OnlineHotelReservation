@@ -133,5 +133,5 @@ class PayWithPaypalController extends Controller
         }
         return redirect()->route('dashboard')->with('flashError', 'Payment failed');
  
-}
+    }
 }
